@@ -55,7 +55,7 @@ app.MapGet("/api/items/{id:guid}", (Guid id, IPartRepository repo) =>
 {
     var part = repo.GetById(id);
     if (part is null)
-        throw new NotFoundException("Запчасть с id {id} не найдена");
+        throw new NotFoundException($"Запчасть с id {id} не найдена");
 
     return Results.Ok(part);
 });
